@@ -1,3 +1,5 @@
+import { v4 } from 'uuid'
+import AddTask from './components/AddTask'
 import Tasks from './components/Tasks'
 import { useState } from 'react'
 
@@ -43,12 +45,22 @@ function onDeleteTaskClick(taskId){
   setTasks(newTasks)
 }
 
+function onAddTaskSubmit(taskTitle, taskDescription){
+  const newTasks = {
+    id: v4(),
+    title: taskTitle,
+    description: taskDescription,
+    isCompleted: false,
+  } 
+  setTasks([...tasks, newTasks]);
+}
+
    return (
-     <div className='w-screen h-screen bg-purple-300 flex justify-center p-6'>
-      <div className='w-[500px]'>
+     <div className='w-screen h-screen bg-purple-300 flex justify-center p-6 '>
+      <div className='w-[500px] space-y-6'>
         <h1 className='text-3xl font-bold text-purple-800 text-center font-mono'>Gerenciador de Tarefas</h1>
+        <AddTask onAddTaskSubmit={onAddTaskSubmit}/>
         <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick}/>
-      
       </div>
      </div>
    )
