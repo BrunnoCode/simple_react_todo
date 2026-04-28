@@ -1,14 +1,14 @@
-import { CircleArrowRight, LucideTrash2 } from "lucide-react";
+import { CheckIcon, CircleArrowRight, LucideTrash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate();
 
   function onSeeDetailsClick(task) {
-    const query = new URLSearchParams()
-    query.set("title", task.title)
-    query.set("description", task.description)
-    navigate(`/task-description?${query.toString()}`)  
+    const query = new URLSearchParams();
+    query.set("title", task.title);
+    query.set("description", task.description);
+    navigate(`/task-description?${query.toString()}`);
   }
   return (
     <div>
@@ -17,8 +17,9 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           <li key={task.id} className="flex gap-2">
             <button
               onClick={() => onTaskClick(task.id)}
-              className={`text-white text-left bg-purple-700 font-bold p-2 w-full rounded-md ${task.isCompleted && "line-through text-purple-200"}`}
+              className={`text-white text-left bg-purple-700 font-bold p-2 w-full rounded-md flex items-center gap-2 ${task.isCompleted && "line-through text-purple-200"}`}
             >
+              {task.isCompleted && <CheckIcon />}
               {task.title}
             </button>
             <button
