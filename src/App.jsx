@@ -9,26 +9,7 @@ import { useState } from 'react'
 
 function App() {
 
-  const [tasks, setTasks] = useState([
-  {
-    id: 1,
-    title: "Estudar demais",
-    description: "estou estudando demais",
-    isCompleted: false,
-  },
-   {
-    id: 2,
-    title: "Estudar React",
-    description: "estou estudando React",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    title: "Estudar React Native",
-    description: "estou estudando React Native",
-    isCompleted: false,
-  },
-])
+  const [tasks, setTasks] = useState([])
 
 function onTaskClick(taskId){
   const newTasks = tasks.map(task => {
