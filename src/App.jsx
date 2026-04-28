@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tarefas") || []),
+    JSON.parse(localStorage.getItem("tarefas") || "[]")
   );
 
   useEffect(() => {
