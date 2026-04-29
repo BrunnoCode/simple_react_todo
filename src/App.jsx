@@ -53,5 +53,5 @@ function App() {
     </div>
   );
 }
-// AULA PAROU NA HORA 1:31 h
+
 export default App;
